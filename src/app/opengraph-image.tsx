@@ -30,8 +30,21 @@ export default async function OpengraphImage() {
         }}
       >
         <div style={{ display: "flex", flexDirection: "column", maxWidth: 640 }}>
-          <div style={{ display: "flex", fontSize: 28, color: "#818cf8" }}>
-            {"<ZI />"}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              width: 64,
+              height: 64,
+              borderRadius: 16,
+              background: "linear-gradient(135deg, #818cf8, #4f46e5)",
+              color: "white",
+              fontSize: 28,
+              fontWeight: 700,
+            }}
+          >
+            ZI
           </div>
           <div
             style={{

@@ -48,10 +48,14 @@ export default function Navbar() {
       }`}
     >
       <nav className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6">
-        <Link href="/#top" className="font-mono text-lg font-semibold">
-          <span className="text-accent">&lt;</span>
-          {profile.shortName}
-          <span className="text-accent"> /&gt;</span>
+        <Link href="/#top" className="group flex items-center gap-3">
+          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-[#818cf8] to-[#4f46e5] text-sm font-bold tracking-tight text-white shadow-lg shadow-accent/20 transition-transform group-hover:scale-105">
+            ZI
+          </span>
+          <span className="leading-tight">
+            <span className="block font-semibold tracking-tight">{profile.name}</span>
+            <span className="block text-xs text-muted">{profile.role}</span>
+          </span>
         </Link>
 
         <div className="hidden items-center gap-7 md:flex">
