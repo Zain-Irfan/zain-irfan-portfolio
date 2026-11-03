@@ -80,12 +80,12 @@ export default function Hero() {
             </a>
           </motion.div>
 
-          <motion.div {...fade(0.6)} className="mt-10 flex gap-5 text-muted">
-            <SocialLink href={profile.socials.github} label="GitHub">
-              <Github size={22} />
-            </SocialLink>
+          <motion.div {...fade(0.6)} className="mt-8 flex flex-wrap gap-3">
             <SocialLink href={profile.socials.linkedin} label="LinkedIn">
-              <Linkedin size={22} />
+              <Linkedin size={18} />
+            </SocialLink>
+            <SocialLink href={profile.socials.github} label="GitHub">
+              <Github size={18} />
             </SocialLink>
           </motion.div>
         </div>
@@ -140,12 +140,12 @@ function SocialLink({
   return (
     <a
       href={href}
-      aria-label={label}
       target="_blank"
       rel="noopener noreferrer"
-      className="transition-all hover:-translate-y-1 hover:text-accent"
+      className="inline-flex items-center gap-2 rounded-full border border-line bg-surface/60 px-4 py-2 text-sm text-fg transition-colors hover:border-accent hover:text-accent"
     >
       {children}
+      {label}
     </a>
   );
 }

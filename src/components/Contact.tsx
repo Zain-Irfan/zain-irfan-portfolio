@@ -1,7 +1,17 @@
 "use client";
 
 import { useState } from "react";
-import { Check, CheckCircle2, Copy, Loader2, Mail, Send } from "lucide-react";
+import {
+  ArrowUpRight,
+  Check,
+  CheckCircle2,
+  Copy,
+  Github,
+  Linkedin,
+  Loader2,
+  Mail,
+  Send,
+} from "lucide-react";
 import { profile } from "@/data/portfolio";
 import Reveal from "./Reveal";
 import Section from "./Section";
@@ -78,6 +88,21 @@ export default function Contact() {
               {copied ? "Copied" : "Copy"}
             </button>
           </div>
+
+          <div className="mt-8 grid gap-3 sm:grid-cols-2">
+            <SocialCard
+              href={profile.socials.linkedin}
+              label="LinkedIn"
+              handle="in/zain-irfan"
+              icon={<Linkedin size={20} />}
+            />
+            <SocialCard
+              href={profile.socials.github}
+              label="GitHub"
+              handle="Zain-Irfan"
+              icon={<Github size={20} />}
+            />
+          </div>
         </Reveal>
 
         <Reveal delay={0.1}>
@@ -138,5 +163,36 @@ export default function Contact() {
         </Reveal>
       </div>
     </Section>
+  );
+}
+
+function SocialCard({
+  href,
+  label,
+  handle,
+  icon,
+}: {
+  href: string;
+  label: string;
+  handle: string;
+  icon: React.ReactNode;
+}) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group flex items-center gap-3 rounded-xl border border-line bg-surface p-4 transition-colors hover:border-accent/60"
+    >
+      <span className="rounded-lg bg-accent-soft p-2.5 text-accent">{icon}</span>
+      <span className="min-w-0 flex-1">
+        <span className="block text-sm font-medium">{label}</span>
+        <span className="block truncate font-mono text-xs text-muted">{handle}</span>
+      </span>
+      <ArrowUpRight
+        size={18}
+        className="shrink-0 text-muted transition-colors group-hover:text-accent"
+      />
+    </a>
   );
 }
