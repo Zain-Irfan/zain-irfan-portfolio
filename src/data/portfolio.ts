@@ -200,7 +200,7 @@ export const projects: Project[] = [
       "Public Shopify app that updates the SEO title and meta description of every product in a store with one click, and logs each run with its progress and status.",
     summary:
       "A public Shopify App Store app that lets merchants apply SEO titles and meta descriptions to their entire product catalog in one click — with a log of every update.",
-    tags: ["Shopify App", "Shopify Admin API", "Embedded App", "SEO"],
+    tags: ["Shopify App", "Laravel", "Polaris", "Shopify Admin API", "SEO"],
     categories: ["Shopify"],
     highlight: { value: "Public", label: "on the Shopify App Store" },
     image: `${appStore}/desktop_screenshot/CMab7pi7mIgDEAE=.png`,
@@ -212,7 +212,7 @@ export const projects: Project[] = [
       "There was also no record of what had been changed, when, or whether every product had actually been updated.",
     ],
     approach: [
-      "I built an embedded Shopify app that runs inside the merchant's admin. The merchant fills in the SEO title and description once in a simple form, clicks Update, and the app applies it to every product in the store through the Shopify Admin API.",
+      "I built an embedded Shopify app with a Laravel backend and a Polaris interface, so it runs inside the merchant's admin and feels native to Shopify. The merchant fills in the SEO title and description once in a simple form, clicks Update, and the app applies it to every product in the store through the Shopify Admin API.",
       "Each run is processed across the whole catalog and recorded on a Logs page showing the total products, how many are complete and the final status, so merchants can see exactly what was updated. A setup guide walks new merchants through the first run, and the app only requests access to products.",
     ],
     results: [
@@ -221,7 +221,7 @@ export const projects: Project[] = [
       { value: "Logged", label: "Full transparency", detail: "Every run tracked with product counts, progress and status." },
     ],
     shipped: [
-      "Embedded app running inside the Shopify admin",
+      "Embedded app with a Laravel backend and Polaris UI inside the Shopify admin",
       "Bulk update of SEO titles and meta descriptions for all products",
       "Shopify Admin API integration for product updates",
       "Progress tracking per run — total vs completed products",
