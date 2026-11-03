@@ -24,7 +24,7 @@ export const about = {
   stats: [
     { value: "6+", label: "Years with Laravel" },
     { value: "4+", label: "Years building Shopify apps" },
-    { value: "6+", label: "Client projects live" },
+    { value: "7+", label: "Client projects live" },
     { value: "2", label: "Software companies" },
   ],
 };
@@ -134,6 +134,7 @@ export type Project = {
   highlight?: { value: string; label: string };
   image?: string;
   liveUrl?: string;
+  liveLabel?: string;
   repoUrl?: string;
   featured?: boolean;
   challenge: string[];
@@ -144,6 +145,8 @@ export type Project = {
 };
 
 const shots = "/projects";
+const appStore =
+  "https://cdn.shopify.com/app-store/listing_images/d5e01cfe3d31da69051a14108ade9a62";
 
 export const projects: Project[] = [
   {
@@ -187,6 +190,50 @@ export const projects: Project[] = [
       { src: `${shots}/haligone/haligone-main.webp`, caption: "Shopify app — one-click submissions, labels and itinerary emails" },
       { src: `${shots}/haligone/mobile1.webp`, caption: "Driver app — assigned deliveries" },
       { src: `${shots}/haligone/mobile2.webp`, caption: "Driver app — delivery status updates" },
+    ],
+  },
+  {
+    slug: "meta-seo-boost",
+    title: "Meta SEO Boost — Public Shopify App",
+    type: "Shopify App · Public App",
+    description:
+      "Public Shopify app that updates the SEO title and meta description of every product in a store with one click, and logs each run with its progress and status.",
+    summary:
+      "A public Shopify App Store app that lets merchants apply SEO titles and meta descriptions to their entire product catalog in one click — with a log of every update.",
+    tags: ["Shopify App", "Shopify Admin API", "Embedded App", "SEO"],
+    categories: ["Shopify"],
+    highlight: { value: "Public", label: "on the Shopify App Store" },
+    image: `${appStore}/desktop_screenshot/CMab7pi7mIgDEAE=.png`,
+    liveUrl: "https://apps.shopify.com/critical-sales-boost-seo",
+    liveLabel: "View on Shopify App Store",
+    featured: true,
+    challenge: [
+      "Shopify merchants have to edit SEO titles and meta descriptions one product at a time in the admin. For stores with large catalogs that takes hours, leads to inconsistent listings, and it's easy to miss products entirely.",
+      "There was also no record of what had been changed, when, or whether every product had actually been updated.",
+    ],
+    approach: [
+      "I built an embedded Shopify app that runs inside the merchant's admin. The merchant fills in the SEO title and description once in a simple form, clicks Update, and the app applies it to every product in the store through the Shopify Admin API.",
+      "Each run is processed across the whole catalog and recorded on a Logs page showing the total products, how many are complete and the final status, so merchants can see exactly what was updated. A setup guide walks new merchants through the first run, and the app only requests access to products.",
+    ],
+    results: [
+      { value: "Public", label: "Shopify App Store", detail: "Reviewed, approved and published for any merchant to install." },
+      { value: "1-click", label: "Catalog-wide SEO", detail: "SEO title and meta description applied to every product at once." },
+      { value: "Logged", label: "Full transparency", detail: "Every run tracked with product counts, progress and status." },
+    ],
+    shipped: [
+      "Embedded app running inside the Shopify admin",
+      "Bulk update of SEO titles and meta descriptions for all products",
+      "Shopify Admin API integration for product updates",
+      "Progress tracking per run — total vs completed products",
+      "Logs page with the history and status of every update",
+      "Setup guideline page for new merchants",
+      "Minimal permissions — product access only",
+      "Shopify App Store listing, review and approval",
+    ],
+    gallery: [
+      { src: `${appStore}/desktop_screenshot/CMab7pi7mIgDEAE=.png`, caption: "Product SEO title and description form" },
+      { src: `${appStore}/desktop_screenshot/CKaQw43EqIgDEAE=.png`, caption: "Setup guideline" },
+      { src: `${appStore}/desktop_screenshot/CPD_hJm7mIgDEAE=.png`, caption: "Logs — every update with progress and status" },
     ],
   },
   {

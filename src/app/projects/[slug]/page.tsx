@@ -60,7 +60,7 @@ export default async function ProjectPage({ params }: Props) {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-2.5 font-medium text-white transition-opacity hover:opacity-90"
               >
-                Visit live site <ExternalLink size={16} />
+                {project.liveLabel ?? "Visit live site"} <ExternalLink size={16} />
               </a>
             )}
             <ul className="flex flex-wrap gap-2">
