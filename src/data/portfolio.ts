@@ -20,6 +20,7 @@ export const about = {
   paragraphs: [
     "I'm a full stack developer from Lahore who enjoys turning ideas into products people actually use. For the last 6 years I've built Laravel applications — APIs, admin portals and business systems with real roles, permissions and audit trails.",
     "For the last 4 years I've also built Shopify apps and integrations that connect stores to real operations: dispatch and delivery, estimates that turn into orders, inventory and commissions. On the frontend I work with React and Next.js.",
+    "I use AI-assisted development tools like Claude Code and Cursor every day to ship faster — while I own the architecture, code review and quality of everything I deliver.",
   ],
   stats: [
     { value: "6+", label: "Years with Laravel" },
@@ -58,8 +59,15 @@ export const skills = [
     ],
   },
   {
-    title: "Database & Tools",
-    items: ["MySQL", "Git & GitHub", "WordPress", "cPanel / VPS Deployment"],
+    title: "Database, Tools & AI",
+    items: [
+      "MySQL",
+      "Git & GitHub",
+      "WordPress",
+      "cPanel / VPS Deployment",
+      "Claude Code",
+      "Cursor",
+    ],
   },
 ];
 
@@ -118,6 +126,8 @@ export const techStrip = [
   "jQuery",
   "WordPress",
   "Git",
+  "Claude Code",
+  "Cursor",
 ];
 
 export const projectCategories = ["Web Apps", "Shopify", "Websites"] as const;
