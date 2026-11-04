@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, Check, ExternalLink, Mail } from "lucide-react";
+import { ArrowLeft, ArrowRight, Check, ExternalLink, Github, Mail } from "lucide-react";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import Reveal from "@/components/Reveal";
@@ -61,6 +61,20 @@ export default async function ProjectPage({ params }: Props) {
                 className="inline-flex items-center gap-2 rounded-lg bg-accent px-5 py-2.5 font-medium text-white transition-opacity hover:opacity-90"
               >
                 {project.liveLabel ?? "Visit live site"} <ExternalLink size={16} />
+              </a>
+            )}
+            {project.repoUrl && (
+              <a
+                href={project.repoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`inline-flex items-center gap-2 rounded-lg px-5 py-2.5 font-medium transition-colors ${
+                  project.liveUrl
+                    ? "border border-line hover:border-accent hover:text-accent"
+                    : "bg-accent text-white hover:opacity-90"
+                }`}
+              >
+                <Github size={16} /> View code on GitHub
               </a>
             )}
             <ul className="flex flex-wrap gap-2">

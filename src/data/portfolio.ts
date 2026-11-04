@@ -25,7 +25,7 @@ export const about = {
   stats: [
     { value: "6+", label: "Years with Laravel" },
     { value: "4+", label: "Years building Shopify apps" },
-    { value: "7+", label: "Client projects live" },
+    { value: "8+", label: "Projects shipped" },
     { value: "2", label: "Software companies" },
   ],
 };
@@ -244,6 +244,53 @@ export const projects: Project[] = [
       { src: `${appStore}/desktop_screenshot/CMab7pi7mIgDEAE=.png`, caption: "Product SEO title and description form" },
       { src: `${appStore}/desktop_screenshot/CKaQw43EqIgDEAE=.png`, caption: "Setup guideline" },
       { src: `${appStore}/desktop_screenshot/CPD_hJm7mIgDEAE=.png`, caption: "Logs — every update with progress and status" },
+    ],
+  },
+  {
+    slug: "hearthline-restaurant-management",
+    title: "Hearthline — Restaurant Management System",
+    type: "Web App · Laravel + React",
+    description:
+      "Restaurant management system with a point of sale, kitchen display, recipe costing, ingredient inventory and purchasing. Selling a dish automatically deducts its recipe's ingredients from stock, and every action is behind role-based permissions.",
+    summary:
+      "An open-source restaurant management system built with Laravel 12, React and Inertia — POS, kitchen display, recipe costing, ingredient inventory and purchasing in one app.",
+    tags: ["Laravel 12", "React", "Inertia.js", "TypeScript", "RBAC"],
+    categories: ["Web Apps"],
+    highlight: { value: "257", label: "automated tests passing" },
+    image: `${shots}/hearthline/kitchen.webp`,
+    repoUrl: "https://github.com/Zain-Irfan/restaurant-management-system",
+    featured: true,
+    challenge: [
+      "Restaurants often run orders, kitchen tickets, stock and supplier purchases in separate tools — or on paper. Ingredient usage is guessed, food cost per dish is unknown, and nobody can say exactly where stock went.",
+      "I wanted one system where taking an order, cooking it, using up ingredients and buying more are all connected, with each staff member seeing only what their role needs.",
+    ],
+    approach: [
+      "I built Hearthline with Laravel 12 on the backend and React with Inertia and TypeScript on the frontend. Cashiers take dine-in, takeaway and delivery orders on a POS screen with variations and add-ons; the kitchen sees tickets move from new to preparing to ready; and payments, discounts, cancellations and refunds each have their own permission.",
+      "Every menu item has a recipe, so the app knows each dish's food cost and estimated profit. Selling a dish deducts its ingredients from stock automatically, and every change — purchases received, sales, wastage, stock counts and adjustments — is written to a stock movement ledger with weighted-average costing. Five staff roles and 35 permissions control what each person can see and do.",
+    ],
+    results: [
+      { value: "257", label: "Automated tests", detail: "Feature tests cover every module, from POS pricing to stock consumption." },
+      { value: "Auto", label: "Recipe-based stock", detail: "Each sale deducts exactly the ingredients its recipe uses." },
+      { value: "5 roles", label: "35 permissions", detail: "Administrator, Manager, Cashier, Kitchen and Inventory staff." },
+    ],
+    shipped: [
+      "POS for dine-in, takeaway and delivery with variations and add-ons",
+      "Kitchen display with new, preparing and ready columns",
+      "Payments, discounts, cancellations and refunds with full status history",
+      "Recipes with food cost, cost percentage and estimated gross profit",
+      "Ingredient inventory with a stock movement ledger and weighted-average cost",
+      "Wastage, stock counts and adjustments with reasons",
+      "Suppliers and purchase orders that add stock when received",
+      "Role-based access with 5 roles and 35 fine-grained permissions",
+    ],
+    gallery: [
+      { src: `${shots}/hearthline/kitchen.webp`, caption: "Kitchen display — orders move from new to preparing to ready" },
+      { src: `${shots}/hearthline/pos.webp`, caption: "Point of sale with table selection" },
+      { src: `${shots}/hearthline/order-detail.webp`, caption: "Order detail with totals, payments and status history" },
+      { src: `${shots}/hearthline/recipe.webp`, caption: "Recipe costing — food cost and estimated profit per dish" },
+      { src: `${shots}/hearthline/inventory.webp`, caption: "Inventory with stock levels and value at average cost" },
+      { src: `${shots}/hearthline/stock-movements.webp`, caption: "Stock movement ledger — every sale deducts its ingredients" },
+      { src: `${shots}/hearthline/purchases.webp`, caption: "Purchases from suppliers, received into stock" },
     ],
   },
   {
