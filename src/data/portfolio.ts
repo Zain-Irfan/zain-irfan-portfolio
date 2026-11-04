@@ -5,7 +5,7 @@ export const profile = {
   shortName: "Zain",
   role: "Full Stack Developer",
   tagline:
-    "Laravel developer for 6 years and Shopify app builder for 4. I build web apps and Shopify apps end to end — from polished interfaces to the APIs and dashboards that run the business.",
+    "With 6+ years of Laravel and 4+ years of Shopify app development, I build web apps and Shopify apps end to end — from polished interfaces to the APIs and dashboards that run the business.",
   location: "Lahore, Pakistan",
   email: "zain.irfan4442@gmail.com",
   photo: "/profile.jpg",
