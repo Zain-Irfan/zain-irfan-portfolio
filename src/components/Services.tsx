@@ -1,4 +1,4 @@
-import { BarChart3, Code2, Globe, LayoutTemplate, Plug, ShoppingBag } from "lucide-react";
+import { Code2, Globe, LayoutTemplate, Plug, ShoppingBag, Sparkles } from "lucide-react";
 import { services } from "@/data/portfolio";
 import Reveal from "./Reveal";
 import Section from "./Section";
@@ -7,7 +7,7 @@ const icons = {
   layout: LayoutTemplate,
   bag: ShoppingBag,
   plug: Plug,
-  chart: BarChart3,
+  sparkles: Sparkles,
   code: Code2,
   globe: Globe,
 };

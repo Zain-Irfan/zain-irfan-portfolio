@@ -1,14 +1,14 @@
-import { Database, Layout, Server, ShoppingBag } from "lucide-react";
+import { Database, Layout, Server, ShoppingBag, Sparkles } from "lucide-react";
 import { skills } from "@/data/portfolio";
 import Reveal from "./Reveal";
 import Section from "./Section";
 
-const icons = [Layout, Server, ShoppingBag, Database];
+const icons = [Layout, Server, ShoppingBag, Sparkles, Database];
 
 export default function Skills() {
   return (
     <Section id="skills" index="03" title="Skills & tools">
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {skills.map((group, i) => {
           const Icon = icons[i % icons.length];
           return (

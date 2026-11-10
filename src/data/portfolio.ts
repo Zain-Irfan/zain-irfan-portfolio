@@ -5,7 +5,7 @@ export const profile = {
   shortName: "Zain",
   role: "Full Stack Developer",
   tagline:
-    "With 6+ years of Laravel and 4+ years of Shopify app development, I build web apps and Shopify apps end to end — from polished interfaces to the APIs and dashboards that run the business.",
+    "With 6+ years of Laravel and 4+ years of Shopify app development, I build web apps, Shopify apps and AI automations end to end — from polished interfaces to the APIs and dashboards that run the business.",
   location: "Lahore, Pakistan",
   email: "zain.irfan4442@gmail.com",
   photo: "/profile.jpg",
@@ -20,7 +20,7 @@ export const about = {
   paragraphs: [
     "I'm a full stack developer from Lahore who enjoys turning ideas into products people actually use. For the last 6 years I've built Laravel applications — APIs, admin portals and business systems with real roles, permissions and audit trails.",
     "For the last 4 years I've also built Shopify apps and integrations that connect stores to real operations: dispatch and delivery, estimates that turn into orders, inventory and commissions. On the frontend I work with React and Next.js.",
-    "I use AI-assisted development tools like Claude Code and Cursor every day to ship faster — while I own the architecture, code review and quality of everything I deliver.",
+    "I also build AI automation into the products I deliver — for example an OpenAI module that writes SEO titles, descriptions and product specs for a Shopify catalog from product data and datasheet PDFs, with a human review step before anything goes live. Day to day I use Claude Code and Cursor to ship faster, while I own the architecture, code review and quality of everything I deliver.",
   ],
   stats: [
     { value: "6+", label: "Years with Laravel" },
@@ -59,15 +59,20 @@ export const skills = [
     ],
   },
   {
-    title: "Database, Tools & AI",
+    title: "AI & Automation",
     items: [
-      "MySQL",
-      "Git & GitHub",
-      "WordPress",
-      "cPanel / VPS Deployment",
+      "OpenAI API",
+      "AI Content Generation",
+      "Prompt Design",
+      "PDF & Document Inputs",
+      "Human-in-the-loop Review",
       "Claude Code",
       "Cursor",
     ],
+  },
+  {
+    title: "Database & Tools",
+    items: ["MySQL", "Git & GitHub", "WordPress", "cPanel / VPS Deployment"],
   },
 ];
 
@@ -76,7 +81,7 @@ export const services = [
     icon: "layout",
     title: "Laravel Web Applications",
     description:
-      "Business portals, admin panels and internal tools with authentication, roles, permissions and audit trails.",
+      "Business portals, dashboards and internal tools with authentication, roles, permissions and audit trails.",
   },
   {
     icon: "bag",
@@ -91,10 +96,10 @@ export const services = [
       "Connecting Shopify, payment gateways and third-party services to your systems through REST APIs and webhooks.",
   },
   {
-    icon: "chart",
-    title: "Dashboards & Portals",
+    icon: "sparkles",
+    title: "AI Automation",
     description:
-      "Dashboards that turn spreadsheets into one system — orders, inventory, sales and commissions in one place.",
+      "OpenAI-powered features inside your apps — bulk product content, SEO and specs from your own data, with review before anything goes live.",
   },
   {
     icon: "code",
@@ -118,6 +123,7 @@ export const techStrip = [
   "Shopify Admin API",
   "Webhooks",
   "Polaris",
+  "OpenAI API",
   "REST APIs",
   "MySQL",
   "Livewire",
@@ -295,37 +301,41 @@ export const projects: Project[] = [
   },
   {
     slug: "estimate-app",
-    title: "Estimate App — Quotes to Shopify Orders",
-    type: "Web App · React + Laravel",
+    title: "Estimate App — Shopify Operations Platform with AI",
+    type: "Web App · React + Laravel + OpenAI",
     description:
-      "React SPA with a Laravel API that turns approved estimates into Shopify orders with customer context, calculates profit-based commissions per user, and audit-logs every change behind granular permissions.",
+      "React + Laravel operations platform connected to Shopify: estimates that become Shopify orders, commissions, purchasing, inventory, a CRM pipeline and appointments — plus an OpenAI module that writes product SEO, descriptions and metafields from product data and datasheet PDFs.",
     summary:
-      "A React + Laravel platform that connects estimates, customer accounts, Shopify order creation and commission tracking in one workflow.",
-    tags: ["React", "Laravel", "Shopify Admin API", "RBAC", "Audit Logs"],
+      "A React + Laravel platform that runs a Shopify retailer's day-to-day operations — estimates, orders, commissions, purchasing, inventory, sales pipeline and appointments — with an OpenAI automation module that writes catalog content in bulk.",
+    tags: ["React", "Laravel", "Shopify Admin API", "OpenAI API", "AI Automation", "RBAC"],
     categories: ["Web Apps", "Shopify"],
-    highlight: { value: "Auto", label: "estimate-to-order workflow" },
+    highlight: { value: "AI", label: "catalog content with OpenAI + human review" },
     image: `${shots}/estimate-app/main1.webp`,
     featured: true,
     challenge: [
-      "The team built estimates by hand, then re-typed every approved quote into Shopify as an order. Customer details were lost between the two systems, and commissions were calculated separately — often wrong and never transparent.",
-      "There was also a permissions problem: not everyone should be able to see or edit cost data, but there was no way to enforce that without blocking the rest of the team.",
+      "The team ran its business across spreadsheets, email and the Shopify admin. Estimates were built by hand and re-typed into Shopify as orders, commissions were calculated separately and often disputed, and purchasing, stock transfers, follow-ups and installation appointments all lived in different places.",
+      "The product catalog had a second problem: thousands of products needed proper SEO titles, meta descriptions, specs and category attributes, and writing them by hand from supplier datasheets was slow and inconsistent.",
     ],
     approach: [
-      "I built a React single-page app on top of a Laravel API. Admins onboard users and decide exactly what each person can do, including who can edit costs. Users build estimates in the app, and when one is approved the system creates the Shopify order with the right customer already attached.",
-      "Commission is calculated automatically from the profit on each estimate using per-user rules that admins configure. Every user sees their own commission history in a dashboard, and an audit log records every change — what changed, who changed it and when.",
+      "I built a React single-page app on a Laravel API that ties it all together. Users build estimates that become Shopify orders with the right customer and B2B company attached; commissions are calculated from profit using per-user rules, with separate installer and upsell commissions, payouts and a balance ledger. Around that sit purchase orders with live shipment tracking, suppliers and a supplier portal, inventory with transfers and barcode-based order packing, product bundles with automatic pricing, customer price catalogs, a CRM pipeline with reminders, and an appointment calendar synced from GoHighLevel — all behind roles and per-user permissions, with real-time updates and web push notifications.",
+      "For the catalog I added an AI automation module built on the OpenAI API. Staff pick products (by hand, collection or filters), choose what the AI may read — title, description, metafields, and the product's datasheet PDF, which is attached as a file — and choose what to fill: SEO title, meta description, tags, product type, metafields or Shopify category attributes. Prompts come from a saved prompt library, the model is selectable, and tasks run in the background every minute. Results go to a review queue before anything updates Shopify (or apply automatically if chosen), the previous value is kept, and token usage and cost are tracked per product. The prompts instruct the model to use only the supplied data and never invent specs or claims.",
     ],
     results: [
-      { value: "1", label: "Connected workflow", detail: "From estimate to Shopify order with no re-typing and no lost customer details." },
-      { value: "Granular", label: "Permission control", detail: "Admins decide who can view or edit cost data, per user." },
-      { value: "Auto", label: "Commission tracking", detail: "Calculated from profit with admin-defined rules, fully audit-logged." },
+      { value: "1", label: "Connected platform", detail: "Estimates, orders, commissions, purchasing, inventory, CRM and appointments in one app." },
+      { value: "AI", label: "Bulk catalog content", detail: "SEO, descriptions, metafields and category attributes generated from real product data and datasheets." },
+      { value: "Review", label: "Human in the loop", detail: "Every AI result can be approved before it touches Shopify, with cost tracked per product." },
     ],
     shipped: [
-      "React SPA for estimates, invoicing and day-to-day workflows",
-      "Laravel API with users, roles, permissions and cost-edit rules",
-      "Shopify integration — approved estimates become Shopify orders",
-      "Commission engine with per-user rates set by admins",
-      "Commission dashboards showing each user's earnings history",
-      "Audit logs for every change to estimates and commissions",
+      "Estimates and invoices that create Shopify orders with customer and B2B company context",
+      "Commission engine — sales, installer and upsell commissions, payouts and balance ledger",
+      "AI product content with OpenAI — SEO titles, meta descriptions, tags, metafields and category attributes",
+      "Datasheet PDFs sent to the AI as file inputs, with a fallback for models without file support",
+      "Saved prompt library, model choice, review queue and per-product token and cost tracking",
+      "Purchase orders with UPS / AfterShip shipment tracking, suppliers and a supplier portal",
+      "Inventory, stock transfers and barcode-based order packing",
+      "Product bundles with hourly price sync and customer price catalogs",
+      "CRM pipeline with stages, notes and reminders, and a GoHighLevel-synced appointment calendar",
+      "Roles and per-user permissions, analytics, real-time updates and web push notifications",
     ],
     gallery: [
       { src: `${shots}/estimate-app/dashboard.png`, caption: "Admin dashboard — estimates, invoices and revenue" },
