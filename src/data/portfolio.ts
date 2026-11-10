@@ -25,7 +25,7 @@ export const about = {
   stats: [
     { value: "6+", label: "Years with Laravel" },
     { value: "4+", label: "Years building Shopify apps" },
-    { value: "8+", label: "Projects shipped" },
+    { value: "9+", label: "Projects shipped" },
     { value: "2", label: "Software companies" },
   ],
 };
@@ -332,6 +332,43 @@ export const projects: Project[] = [
       { src: `${shots}/estimate-app/estimate1.webp`, caption: "Estimates and invoicing workflow" },
       { src: `${shots}/estimate-app/main1.webp`, caption: "Estimate & profit overview" },
     ],
+  },
+  {
+    slug: "b2b-order-prefix-app",
+    title: "B2B Order Prefix — Custom Shopify App",
+    type: "Shopify App · Custom App",
+    description:
+      "Custom Shopify app that adds a WO- prefix only to selected B2B company orders. Because Shopify can't rename an order after it's placed, the app cancels the original and recreates it under the new name with every detail intact.",
+    summary:
+      "A custom Shopify app for a B2B merchant that prefixes only the orders that need it — automatically cancelling and recreating qualifying company orders as #WO-orders, with every detail preserved.",
+    tags: ["Shopify App", "Laravel", "Shopify B2B", "GraphQL Admin API", "Webhooks", "Queues"],
+    categories: ["Shopify"],
+    highlight: { value: "#WO-", label: "prefix on selected B2B orders only" },
+    image: `${shots}/order-prefix/flow.webp`,
+    challenge: [
+      "The client sells both to regular customers and to B2B companies through Shopify. Their team needed wholesale orders from B2B companies to stand out with a WO- prefix (#WO-1052 instead of #1052), so warehouse and accounts could spot them instantly — but every other order had to keep its normal number.",
+      "Shopify's built-in order ID prefix doesn't help here: it applies to every order in the store, with no way to target only some of them. And Shopify doesn't allow an order's name to be changed once it has been created, so there was no simple way to rename just the B2B orders after the fact.",
+    ],
+    approach: [
+      "I built a custom Laravel Shopify app that listens for new orders through webhooks and decides, order by order, whether it should be prefixed: the prefix setting must be on, the order must come from a B2B company, the company must not be on the admin's exclusion list, and the order must not be refunded, cancelled or already prefixed.",
+      "For qualifying orders, the app saves a complete copy of the order — customer, addresses, line items, discounts, taxes, shipping, company, tags, note and PO number — then cancels the original through the GraphQL Admin API with restocking. A queued job then recreates the order as #WO-1052 with the same details, storing the PO number in a custom metafield. Every step is logged, so any failure can be traced and retried.",
+    ],
+    results: [
+      { value: "Selective", label: "Prefix where it's needed", detail: "Only qualifying B2B company orders get the WO- prefix; every other order is untouched." },
+      { value: "Auto", label: "No manual renaming", detail: "Orders are checked and recreated automatically as they come in." },
+      { value: "Logged", label: "Traceable", detail: "Each order's outcome and any error is recorded for the team to review." },
+    ],
+    shipped: [
+      "Order webhook handling with queued background jobs",
+      "Rules engine: prefix on/off, B2B-only and per-company exclusions",
+      "Full order snapshot — items, customer, addresses, discounts, taxes, shipping",
+      "Order cancellation with restock through the GraphQL Admin API",
+      "Recreated #WO- orders with tags, note and PO number metafield",
+      "Admin pages for orders, B2B companies and settings inside Shopify",
+      "Order sync and filtering for the store's order history",
+      "Per-order logs and error tracking",
+    ],
+    gallery: [],
   },
   {
     slug: "baytech-inventory-portal",
