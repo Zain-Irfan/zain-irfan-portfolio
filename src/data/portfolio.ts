@@ -25,7 +25,7 @@ export const about = {
   stats: [
     { value: "6+", label: "Years with Laravel" },
     { value: "4+", label: "Years building Shopify apps" },
-    { value: "10+", label: "Projects shipped" },
+    { value: "11+", label: "Projects shipped" },
     { value: "2", label: "Software companies" },
   ],
 };
@@ -297,6 +297,52 @@ export const projects: Project[] = [
       { src: `${shots}/hearthline/inventory.webp`, caption: "Inventory with stock levels and value at average cost" },
       { src: `${shots}/hearthline/stock-movements.webp`, caption: "Stock movement ledger — every sale deducts its ingredients" },
       { src: `${shots}/hearthline/purchases.webp`, caption: "Purchases from suppliers, received into stock" },
+    ],
+  },
+  {
+    slug: "freelancerhub",
+    title: "FreelancerHub — Finance Manager for Freelancers",
+    type: "Web App · Next.js + Prisma",
+    description:
+      "Finance and business manager for Pakistani freelancers: clients, projects, invoices with PDF export, foreign-currency income converted to PKR, expenses, FBR tax estimates and profit & loss reports — built with Next.js, TypeScript and Prisma.",
+    summary:
+      "A Next.js app that gives Pakistani freelancers one place for clients, invoices, foreign-currency income, expenses and FBR tax estimates — with PDF and CSV reports for accounting and income verification.",
+    tags: ["Next.js", "TypeScript", "Prisma", "MySQL", "Better Auth", "React Query"],
+    categories: ["Web Apps"],
+    highlight: { value: "FBR", label: "tax estimates with PKR conversion" },
+    image: `${shots}/freelancerhub/tax.webp`,
+    featured: true,
+    challenge: [
+      "Freelancers in Pakistan are paid in USD, GBP or EUR through Upwork, Payoneer, Wise or bank transfers, but their taxes, expenses and bank records are in PKR. Tracking clients, invoices and payments across spreadsheets makes it hard to know real monthly profit — and harder to answer \"how much tax will I owe this year?\"",
+      "They also need clean records for banks and tax filing: income statements, outstanding invoices and proof of foreign income.",
+    ],
+    approach: [
+      "I built FreelancerHub with Next.js, TypeScript, Prisma and MySQL. Freelancers manage clients (by platform — Upwork, Fiverr, Toptal or direct) and projects, create invoices that move from draft to sent, viewed, paid or overdue, download them as PDFs and share a public link. Every payment is recorded in its original currency and converted to PKR at that day's exchange rate, with payment method and reference.",
+      "Expenses are categorised, can carry a receipt and are flagged as tax-deductible. The Tax Center applies the FBR tax slabs for the selected tax year — gross income, deductible expenses, taxable income, marginal and effective rate, and how much to set aside each month — and a what-if planner models different incomes. Reports cover profit & loss, client revenue, expense breakdown, outstanding invoices and income verification, exportable as PDF or CSV, with database backup in settings.",
+    ],
+    results: [
+      { value: "PKR", label: "Automatic conversion", detail: "Every USD, GBP, EUR or AED payment is converted at that day's rate." },
+      { value: "FBR", label: "Tax estimates", detail: "Taxable income, effective rate and monthly set-aside from the year's FBR slabs." },
+      { value: "PDF", label: "Ready-made records", detail: "Invoices, statements and reports exported as PDF or CSV." },
+    ],
+    shipped: [
+      "Clients by platform and projects with budgets and statuses",
+      "Invoices with statuses, PDF export, public share links and payment history",
+      "Multi-currency income with daily exchange rates and PKR conversion",
+      "Categorised expenses with receipt upload and tax-deductible flags",
+      "FBR Tax Center with slab-based tax estimates and a what-if planner",
+      "Profit & loss, client revenue, outstanding invoice and income verification reports",
+      "PDF and CSV exports, earnings goals and notifications",
+      "Email and password auth with Better Auth, plus database backup",
+    ],
+    gallery: [
+      { src: `${shots}/freelancerhub/tax.webp`, caption: "Tax Center — FBR tax estimate, deductions and monthly set-aside" },
+      { src: `${shots}/freelancerhub/dashboard.webp`, caption: "Dashboard — monthly revenue, profit and yearly earnings goal" },
+      { src: `${shots}/freelancerhub/invoice-detail.webp`, caption: "Invoice with payment summary, history and PDF export" },
+      { src: `${shots}/freelancerhub/invoices.webp`, caption: "Invoices across clients, currencies and statuses" },
+      { src: `${shots}/freelancerhub/income.webp`, caption: "Income in USD, GBP and EUR, converted to PKR" },
+      { src: `${shots}/freelancerhub/expenses.webp`, caption: "Expenses with categories and deductible flags" },
+      { src: `${shots}/freelancerhub/profit-loss.webp`, caption: "Profit & loss report with monthly breakdown" },
     ],
   },
   {
