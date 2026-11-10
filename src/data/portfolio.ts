@@ -400,7 +400,7 @@ export const projects: Project[] = [
     tags: ["Shopify App", "Laravel", "Shopify B2B", "GraphQL Admin API", "Webhooks", "Queues"],
     categories: ["Shopify", "Automation"],
     highlight: { value: "#WO-", label: "prefix on selected B2B orders only" },
-    image: `${shots}/order-prefix/flow.webp`,
+    image: `${shots}/order-prefix/orders.webp`,
     challenge: [
       "The client sells both to regular customers and to B2B companies through Shopify. Their team needed wholesale orders from B2B companies to stand out with a WO- prefix (#WO-1052 instead of #1052), so warehouse and accounts could spot them instantly — but every other order had to keep its normal number.",
       "Shopify's built-in order ID prefix doesn't help here: it applies to every order in the store, with no way to target only some of them. And Shopify doesn't allow an order's name to be changed once it has been created, so there was no simple way to rename just the B2B orders after the fact.",
@@ -424,7 +424,10 @@ export const projects: Project[] = [
       "Order sync and filtering for the store's order history",
       "Per-order logs and error tracking",
     ],
-    gallery: [],
+    gallery: [
+      { src: `${shots}/order-prefix/settings.webp`, caption: "Settings — prefix switch and companies excluded from the prefix" },
+      { src: `${shots}/order-prefix/companies.webp`, caption: "B2B companies synced from Shopify" },
+    ],
   },
   {
     slug: "sms-ordering-shopify-app",
@@ -437,7 +440,7 @@ export const projects: Project[] = [
     tags: ["Shopify App", "Laravel", "Twilio", "ClickSend", "Stripe", "Cron Jobs"],
     categories: ["Shopify", "Automation"],
     highlight: { value: "SMS", label: "reply to order — paid automatically" },
-    image: `${shots}/sms-ordering/flow.webp`,
+    image: `${shots}/sms-ordering/campaigns.webp`,
     challenge: [
       "The client's customers reorder the same products regularly, but going back to the website each time was friction — and the team was chasing repeat orders and payments by hand.",
       "They wanted customers to be able to reorder with a quick text, without the team typing orders into Shopify, while still respecting each customer's discount, avoiding accidental duplicate orders and following up with people who didn't respond.",
@@ -461,7 +464,9 @@ export const projects: Project[] = [
       "Campaign and wave analytics with CSV export",
       "Shopify webhooks to keep products, orders and customers in sync",
     ],
-    gallery: [],
+    gallery: [
+      { src: `${shots}/sms-ordering/analytics.webp`, caption: "Campaign analytics — SMS sent, failed, orders from first SMS and from reminders" },
+    ],
   },
   {
     slug: "courier-delivery-integration",
