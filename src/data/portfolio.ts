@@ -25,7 +25,7 @@ export const about = {
   stats: [
     { value: "6+", label: "Years with Laravel" },
     { value: "4+", label: "Years building Shopify apps" },
-    { value: "11+", label: "Projects shipped" },
+    { value: "12+", label: "Projects shipped" },
     { value: "2", label: "Software companies" },
   ],
 };
@@ -460,6 +460,43 @@ export const projects: Project[] = [
       "Reminder messages, automated answers and automatic blacklisting",
       "Campaign and wave analytics with CSV export",
       "Shopify webhooks to keep products, orders and customers in sync",
+    ],
+    gallery: [],
+  },
+  {
+    slug: "courier-delivery-integration",
+    title: "Courier Delivery Integration — Custom Shopify App",
+    type: "Shopify App · Custom App",
+    description:
+      "Custom Shopify app that connects stores in Kuwait to local last-mile courier services (Tryvengo and DHub). New orders are matched to the right delivery area, booked with the courier through its API, and their delivery status flows back into Shopify automatically.",
+    summary:
+      "A custom Shopify app that books every new order with a local courier in Kuwait — matching free-text addresses to delivery areas, pushing orders automatically and syncing live delivery status back to Shopify.",
+    tags: ["Shopify App", "Laravel", "Courier APIs", "Webhooks", "Cron Jobs", "Fuzzy Matching"],
+    categories: ["Shopify", "Automation"],
+    highlight: { value: "Auto", label: "orders booked with the courier and tracked" },
+    image: `${shots}/courier-integration/flow.webp`,
+    challenge: [
+      "The client's stores in Kuwait ship through local last-mile courier services, but every order had to be re-typed into the courier's portal by hand, and the team then checked each delivery's progress separately — with no delivery status visible inside Shopify.",
+      "Addresses were a problem too: customers type their area freely (\"salmiya blk 10\"), while the courier needs an exact delivery area and block number, and needs to know whether the order is prepaid or cash on delivery.",
+    ],
+    approach: [
+      "I built a custom Laravel Shopify app that receives new orders through webhooks and books them with the courier through its API — automatically when auto-push is on, or in bulk when the team selects orders. Before booking, the app fuzzy-matches the customer's free-text area to the official list of Kuwait delivery areas, reads the block number from the checkout attributes, and sets the payment type from the order's financial status.",
+      "Delivery status comes back two ways: a webhook from the courier and an hourly tracking job. Each update — assigned, picked, out for delivery, delivered, returned and more — is written to the order in Shopify as a tag, replacing the previous status, so the team can filter orders by delivery stage without leaving Shopify. The app supports more than one courier provider and logs every booking response for troubleshooting.",
+    ],
+    results: [
+      { value: "Auto", label: "Courier booking", detail: "New orders are pushed to the courier without manual re-typing." },
+      { value: "Matched", label: "Clean addresses", detail: "Free-text areas are matched to the courier's official delivery areas." },
+      { value: "Live", label: "Status in Shopify", detail: "Delivery stage synced to each order as a tag via webhooks and tracking." },
+    ],
+    shipped: [
+      "Order webhooks with automatic or bulk push to the courier",
+      "Courier API integrations (Tryvengo and DHub) with booking logs",
+      "Fuzzy matching of customer areas to Kuwait delivery areas",
+      "Block number and cash-on-delivery handling from order data",
+      "Delivery status via courier webhooks and hourly tracking jobs",
+      "Status synced to Shopify order tags for filtering by delivery stage",
+      "Admin pages for orders, filters and courier settings",
+      "Order sync for the store's existing orders",
     ],
     gallery: [],
   },
