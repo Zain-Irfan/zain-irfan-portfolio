@@ -25,7 +25,7 @@ export const about = {
   stats: [
     { value: "6+", label: "Years with Laravel" },
     { value: "4+", label: "Years building Shopify apps" },
-    { value: "9+", label: "Projects shipped" },
+    { value: "10+", label: "Projects shipped" },
     { value: "2", label: "Software companies" },
   ],
 };
@@ -136,7 +136,7 @@ export const techStrip = [
   "Cursor",
 ];
 
-export const projectCategories = ["Web Apps", "Shopify", "Websites"] as const;
+export const projectCategories = ["Web Apps", "Shopify", "Automation", "Websites"] as const;
 export type ProjectCategory = (typeof projectCategories)[number];
 
 export type Project = {
@@ -174,7 +174,7 @@ export const projects: Project[] = [
     summary:
       "Three connected products — a Shopify app, a Laravel admin dashboard and a driver app — that automate local delivery from Shopify order to the customer's door in real time.",
     tags: ["Shopify App", "Laravel", "Webhooks", "Flutter", "Real-time"],
-    categories: ["Shopify", "Web Apps"],
+    categories: ["Shopify", "Web Apps", "Automation"],
     highlight: { value: "3 apps", label: "live on Shopify, App Store & Play" },
     image: `${shots}/haligone/haligone-main.webp`,
     liveUrl: "https://haligone.com",
@@ -308,7 +308,7 @@ export const projects: Project[] = [
     summary:
       "A React + Laravel platform that runs a Shopify retailer's day-to-day operations — estimates, orders, commissions, purchasing, inventory, sales pipeline and appointments — with an OpenAI automation module that writes catalog content in bulk.",
     tags: ["React", "Laravel", "Shopify Admin API", "OpenAI API", "AI Automation", "RBAC"],
-    categories: ["Web Apps", "Shopify"],
+    categories: ["Web Apps", "Shopify", "Automation"],
     highlight: { value: "AI", label: "catalog content with OpenAI + human review" },
     image: `${shots}/estimate-app/main1.webp`,
     featured: true,
@@ -352,7 +352,7 @@ export const projects: Project[] = [
     summary:
       "A custom Shopify app for a B2B merchant that prefixes only the orders that need it — automatically cancelling and recreating qualifying company orders as #WO-orders, with every detail preserved.",
     tags: ["Shopify App", "Laravel", "Shopify B2B", "GraphQL Admin API", "Webhooks", "Queues"],
-    categories: ["Shopify"],
+    categories: ["Shopify", "Automation"],
     highlight: { value: "#WO-", label: "prefix on selected B2B orders only" },
     image: `${shots}/order-prefix/flow.webp`,
     challenge: [
@@ -377,6 +377,43 @@ export const projects: Project[] = [
       "Admin pages for orders, B2B companies and settings inside Shopify",
       "Order sync and filtering for the store's order history",
       "Per-order logs and error tracking",
+    ],
+    gallery: [],
+  },
+  {
+    slug: "sms-ordering-shopify-app",
+    title: "SMS Ordering — Custom Shopify App",
+    type: "Shopify App · Custom App",
+    description:
+      "Custom Shopify app that lets customers reorder by text message. Scheduled SMS campaigns go out through Twilio or ClickSend, customers reply with product codes, and the app creates the Shopify order and charges their saved card with Stripe automatically.",
+    summary:
+      "A custom Shopify app for a subscription-style retailer: customers reorder by replying to scheduled SMS campaigns, and the app turns each reply into a paid Shopify order — with reminders, discounts and campaign analytics.",
+    tags: ["Shopify App", "Laravel", "Twilio", "ClickSend", "Stripe", "Cron Jobs"],
+    categories: ["Shopify", "Automation"],
+    highlight: { value: "SMS", label: "reply to order — paid automatically" },
+    image: `${shots}/sms-ordering/flow.webp`,
+    challenge: [
+      "The client's customers reorder the same products regularly, but going back to the website each time was friction — and the team was chasing repeat orders and payments by hand.",
+      "They wanted customers to be able to reorder with a quick text, without the team typing orders into Shopify, while still respecting each customer's discount, avoiding accidental duplicate orders and following up with people who didn't respond.",
+    ],
+    approach: [
+      "I built a custom Laravel Shopify app around scheduled SMS campaigns. Admins create campaigns for customer groups — day, time and timezone, weekly or every four weeks — with a message listing short product codes. A scheduler sends them through Twilio, with ClickSend as an alternative provider, and sends a reminder to anyone who hasn't replied.",
+      "Replies arrive by webhook and are parsed into products and quantities (for example \"B2 C1\"). If the customer already ordered in the last 7 days, the app texts back their previous order and asks them to confirm with Y or N first. The app then creates the Shopify order with the customer's discount group applied and charges their saved card with Stripe — or falls back to sending an invoice, with bulk actions to retry failed payments. Unknown replies get an automatic answer, long-inactive customers are blacklisted automatically, and every campaign wave tracks messages sent, replies, failed SMS and orders placed, with CSV export.",
+    ],
+    results: [
+      { value: "Text", label: "Reply to reorder", detail: "Customers reorder with a short SMS — no website visit needed." },
+      { value: "Auto", label: "Order + payment", detail: "Replies become Shopify orders and are charged to the saved card automatically." },
+      { value: "Tracked", label: "Campaign analytics", detail: "Sent, replied, failed and ordered counts for every campaign wave." },
+    ],
+    shipped: [
+      "Scheduled SMS campaigns by customer group, day, time and timezone",
+      "Twilio and ClickSend SMS providers with inbound reply webhooks",
+      "Reply parsing for product codes and quantities, with a 7-day duplicate-order check",
+      "Automatic Shopify order creation with discount groups",
+      "Stripe charges on saved cards, invoices and bulk retry for failed payments",
+      "Reminder messages, automated answers and automatic blacklisting",
+      "Campaign and wave analytics with CSV export",
+      "Shopify webhooks to keep products, orders and customers in sync",
     ],
     gallery: [],
   },
