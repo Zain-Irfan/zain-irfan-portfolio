@@ -474,7 +474,7 @@ export const projects: Project[] = [
     tags: ["Shopify App", "Laravel", "Courier APIs", "Webhooks", "Cron Jobs", "Fuzzy Matching"],
     categories: ["Shopify", "Automation"],
     highlight: { value: "Auto", label: "orders booked with the courier and tracked" },
-    image: `${shots}/courier-integration/flow.webp`,
+    image: `${shots}/courier-integration/orders.webp`,
     challenge: [
       "The client's stores in Kuwait ship through local last-mile courier services, but every order had to be re-typed into the courier's portal by hand, and the team then checked each delivery's progress separately — with no delivery status visible inside Shopify.",
       "Addresses were a problem too: customers type their area freely (\"salmiya blk 10\"), while the courier needs an exact delivery area and block number, and needs to know whether the order is prepaid or cash on delivery.",
