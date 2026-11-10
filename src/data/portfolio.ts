@@ -25,7 +25,7 @@ export const about = {
   stats: [
     { value: "6+", label: "Years with Laravel" },
     { value: "4+", label: "Years building Shopify apps" },
-    { value: "12+", label: "Projects shipped" },
+    { value: "13+", label: "Projects shipped" },
     { value: "2", label: "Software companies" },
   ],
 };
@@ -504,6 +504,47 @@ export const projects: Project[] = [
       "Order sync for the store's existing orders",
     ],
     gallery: [],
+  },
+  {
+    slug: "fbr-digital-invoicing",
+    title: "FBR Digital Invoicing & Product Authentication",
+    type: "Web App · Laravel · FBR API",
+    description:
+      "Laravel app for a Pakistani manufacturer that records sales invoices and submits them to FBR's digital invoicing API, with sales tax calculations, validation feedback and one-click retries — plus product PIN verification so buyers can check a product is genuine.",
+    summary:
+      "A Laravel app that submits a manufacturer's sales invoices to Pakistan's FBR digital invoicing system — calculating sales tax, tracking each invoice's FBR status and retrying failures — and lets buyers verify products with a unique PIN.",
+    tags: ["Laravel", "FBR Digital Invoicing API", "REST API", "Sales Tax", "CSV Import"],
+    categories: ["Web Apps"],
+    highlight: { value: "FBR", label: "invoices submitted with live status" },
+    image: `${shots}/fbr-invoicing/sales.webp`,
+    challenge: [
+      "Pakistan's Federal Board of Revenue requires registered businesses to report sales invoices electronically through its digital invoicing system. The client was preparing invoices manually and needed every sale reported to FBR in the right format — seller NTN/STRN, HS codes, sales tax and totals — and to know immediately which invoices FBR had accepted and which had been rejected.",
+      "The same client also had a counterfeit problem: buyers needed a simple way to confirm that a product was genuine.",
+    ],
+    approach: [
+      "I built a Laravel admin where staff record sales invoices line by line; the app calculates the value before tax, 18% sales tax and the inclusive total for each item and for the invoice. With one click an invoice is formatted to FBR's digital invoicing specification and submitted to the FBR API with the seller's NTN or STRN, province and address. The response is stored on the invoice — FBR invoice number on success, the error code and message on rejection — and failed invoices can be corrected and retried. Sent invoices are locked from editing, and a settings page manages the API token, environment (sandbox scenario or production) and seller details.",
+      "For authentication, admins import product numbers and secret PINs in bulk from a CSV file. A public verification API checks a product number and PIN pair and records the date it was first verified, so buyers get an instant genuine or not-recognised answer.",
+    ],
+    results: [
+      { value: "FBR", label: "Digital invoicing", detail: "Invoices submitted in FBR's format with the response stored on each invoice." },
+      { value: "Retry", label: "Failure handling", detail: "Rejected invoices show FBR's error and can be fixed and resubmitted." },
+      { value: "PIN", label: "Product verification", detail: "Buyers check a product number and PIN to confirm it is genuine." },
+    ],
+    shipped: [
+      "Sales invoices with line items and automatic 18% sales tax calculation",
+      "FBR digital invoicing API integration — sandbox scenarios and production",
+      "FBR status per invoice: sent, failed with error code, or not sent",
+      "One-click submit and retry, with sent invoices locked from editing",
+      "FBR settings for API token, seller NTN / STRN, province and address",
+      "Filters by date range and FBR status",
+      "Bulk CSV import of product numbers and PINs",
+      "Public PIN verification API that records the first verification date",
+    ],
+    gallery: [
+      { src: `${shots}/fbr-invoicing/invoice.webp`, caption: "Invoice sent to FBR — line items, 18% sales tax and totals" },
+      { src: `${shots}/fbr-invoicing/settings.webp`, caption: "FBR integration settings — API, seller NTN / STRN and sandbox scenario" },
+      { src: `${shots}/fbr-invoicing/pin-codes.webp`, caption: "Product PIN codes with verification dates" },
+    ],
   },
   {
     slug: "baytech-inventory-portal",
