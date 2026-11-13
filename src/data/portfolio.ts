@@ -356,6 +356,7 @@ export const projects: Project[] = [
     tags: ["Laravel 12", "OpenAI API", "File Search", "Embeddable Widget", "Shopify Admin API", "Alpine.js"],
     categories: ["Web Apps", "Automation", "Shopify"],
     highlight: { value: "AI", label: "answers from each business's own knowledge" },
+    image: `${shots}/ai-support-chatbot/dashboard.webp`,
     featured: true,
     challenge: [
       "Small businesses answer the same customer questions all day — shipping, returns, stock, \"where is my order?\" Generic chatbots don't know their policies or products, and when the bot can't help there is no clean way for a person to step in.",
@@ -380,7 +381,15 @@ export const projects: Project[] = [
       "Support inbox with assignment, human takeover, internal notes and handover requests",
       "Analytics with token usage and estimated AI cost by chatbot, model and business",
     ],
-    gallery: [],
+    gallery: [
+      { src: `${shots}/ai-support-chatbot/dashboard.webp`, caption: "Business dashboard — conversations, AI replies, tokens and estimated cost" },
+      { src: `${shots}/ai-support-chatbot/widget.webp`, caption: "Embeddable chat widget answering from the store's knowledge base" },
+      { src: `${shots}/ai-support-chatbot/conversation.webp`, caption: "AI hands over to a person — assignment and internal notes in the inbox" },
+      { src: `${shots}/ai-support-chatbot/inbox.webp`, caption: "Support inbox with AI and team-handled conversations" },
+      { src: `${shots}/ai-support-chatbot/knowledge.webp`, caption: "Knowledge base — web pages, FAQs and text indexed per chatbot" },
+      { src: `${shots}/ai-support-chatbot/behavior.webp`, caption: "AI behaviour — system instructions, welcome and fallback messages" },
+      { src: `${shots}/ai-support-chatbot/install.webp`, caption: "One-line embed code with allowed domains and platform instructions" },
+    ],
   },
   {
     slug: "estimate-app",
