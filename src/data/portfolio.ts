@@ -25,7 +25,7 @@ export const about = {
   stats: [
     { value: "6+", label: "Years with Laravel" },
     { value: "4+", label: "Years building Shopify apps" },
-    { value: "13+", label: "Projects shipped" },
+    { value: "14+", label: "Projects shipped" },
     { value: "2", label: "Software companies" },
   ],
 };
@@ -344,6 +344,43 @@ export const projects: Project[] = [
       { src: `${shots}/freelancerhub/expenses.webp`, caption: "Expenses with categories and deductible flags" },
       { src: `${shots}/freelancerhub/profit-loss.webp`, caption: "Profit & loss report with monthly breakdown" },
     ],
+  },
+  {
+    slug: "ai-customer-support-chatbot",
+    title: "AI Customer Support Chatbot Platform",
+    type: "SaaS · Laravel · OpenAI",
+    description:
+      "Multi-tenant SaaS where businesses create AI support chatbots, train them on their own documents, web pages and FAQs, embed them on any website with one script tag, connect them to Shopify for product and order questions, and hand conversations over to their team in a shared inbox.",
+    summary:
+      "A multi-tenant Laravel platform for AI customer-support chatbots — trained on each business's own knowledge with OpenAI, embedded on any website, connected to Shopify and backed by a human support inbox.",
+    tags: ["Laravel 12", "OpenAI API", "File Search", "Embeddable Widget", "Shopify Admin API", "Alpine.js"],
+    categories: ["Web Apps", "Automation", "Shopify"],
+    highlight: { value: "AI", label: "answers from each business's own knowledge" },
+    featured: true,
+    challenge: [
+      "Small businesses answer the same customer questions all day — shipping, returns, stock, \"where is my order?\" Generic chatbots don't know their policies or products, and when the bot can't help there is no clean way for a person to step in.",
+      "A platform for many businesses also has to keep every business's data, knowledge and conversations strictly separate, and keep AI costs visible and under control.",
+    ],
+    approach: [
+      "I built a multi-tenant Laravel 12 platform where each business has its own team (owner, admin and agent roles), chatbots and data, isolated by a tenant scope that is re-checked on every request. Each chatbot has its own instructions, model, reply language, daily message limit and widget appearance. Replies are generated on the queue through the OpenAI Responses API, with retries and back-off, a fallback reply on failure, rolling summaries to keep long conversations cheap, and every call's tokens, cost and latency logged.",
+      "Businesses train a chatbot by uploading PDF, DOCX or text files, adding web pages (fetched with SSRF protection) or writing FAQs; each source is indexed into that chatbot's own OpenAI vector store and used through File Search. The chatbot goes live with a single script tag: a lightweight Shadow DOM widget with signed session tokens, domain allowlisting and rate limits. Connecting a Shopify store gives the AI read-only tools to search products, check stock and look up order status after verifying the customer. When the AI can't help, the conversation is handed to a person in a support inbox with assignment, takeover, internal notes and live updates.",
+    ],
+    results: [
+      { value: "Own", label: "Knowledge per chatbot", detail: "Documents, web pages and FAQs indexed into a separate vector store for each chatbot." },
+      { value: "1 tag", label: "Embed anywhere", detail: "One script tag adds the chat widget to any website, limited to allowed domains." },
+      { value: "Human", label: "Handover built in", detail: "Customers, the AI or a failed reply can bring a person into the conversation." },
+    ],
+    shipped: [
+      "Multi-tenant businesses with owner, admin and agent roles, invitations and a Super Admin area",
+      "Chatbot settings — instructions, model, reply language, daily limit and widget appearance",
+      "AI replies with the OpenAI Responses API, queued with retries, fallbacks and rolling summaries",
+      "Knowledge base from PDF, DOCX, text, web pages and FAQs, indexed with OpenAI File Search",
+      "Embeddable Shadow DOM widget with signed sessions, domain allowlist, CORS and rate limits",
+      "Shopify OAuth connection with AI tools for product search, stock and order status",
+      "Support inbox with assignment, human takeover, internal notes and handover requests",
+      "Analytics with token usage and estimated AI cost by chatbot, model and business",
+    ],
+    gallery: [],
   },
   {
     slug: "estimate-app",
